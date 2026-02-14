@@ -3,147 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Braincandy Story - A Novel by Roger Grubb</title>
+    <title>The Braincandy Story</title>
     <style>
-        * { box-sizing: border-box; }
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.8;
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background: #fefefe;
-            color: #1a1a1a;
-        }
-        h1.book-title {
-            font-size: 2.8em;
-            text-align: center;
-            margin: 80px 0 20px;
-            font-weight: normal;
-            letter-spacing: 0.1em;
-        }
-        .author {
-            text-align: center;
-            font-size: 1.3em;
-            margin-bottom: 80px;
-            font-style: italic;
-            color: #555;
-        }
-        .toc {
-            margin: 60px 0;
-            padding: 40px;
-            background: #f9f9f9;
-            border-radius: 8px;
-        }
-        .toc h2 {
-            text-align: center;
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            font-weight: normal;
-            letter-spacing: 0.1em;
-        }
-        .toc-list {
-            list-style: none;
-            padding: 0;
-            columns: 2;
-            column-gap: 40px;
-        }
-        @media (max-width: 600px) { .toc-list { columns: 1; } }
-        .toc-list li { margin: 8px 0; break-inside: avoid; }
-        .toc-list a {
-            color: #1a1a1a;
-            text-decoration: none;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dotted #ccc;
-            padding-bottom: 4px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Georgia, 'Times New Roman', serif; background: #faf9f6; color: #1a1a1a; line-height: 1.8; }
+        .container { max-width: 680px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 60px 20px 40px; border-bottom: 1px solid #e0e0e0; margin-bottom: 40px; }
+        .book-title { font-size: 2.5em; font-weight: normal; letter-spacing: 0.05em; margin-bottom: 10px; text-transform: uppercase; }
+        .subtitle { font-size: 1.1em; color: #666; font-style: italic; }
+        .author { margin-top: 30px; font-size: 1em; color: #888; }
+        .toc { background: #f5f5f0; padding: 30px; margin: 40px 0; border-radius: 4px; }
+        .toc h3 { text-align: center; margin-bottom: 20px; font-size: 1em; letter-spacing: 0.1em; text-transform: uppercase; color: #666; }
+        .toc-list { list-style: none; columns: 2; column-gap: 40px; }
+        .toc-list li { padding: 5px 0; break-inside: avoid; }
+        .toc-list a { color: #1a1a1a; text-decoration: none; font-size: 0.95em; }
         .toc-list a:hover { color: #0066cc; }
-        .toc-list .ch-num { font-weight: bold; margin-right: 10px; }
-        .act-header {
-            text-align: center;
-            font-size: 1.8em;
-            margin: 100px 0 60px;
-            font-weight: normal;
-            letter-spacing: 0.2em;
-            color: #333;
-            border-top: 2px solid #333;
-            border-bottom: 2px solid #333;
-            padding: 20px 0;
-        }
-        .chapter { margin: 80px 0; page-break-before: always; }
+        .act-header { text-align: center; font-size: 1.2em; letter-spacing: 0.15em; color: #888; margin: 60px 0 40px; padding: 20px; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; text-transform: uppercase; }
+        .chapter { margin-bottom: 80px; }
         .chapter-header { text-align: center; margin-bottom: 40px; }
-        .chapter-number { font-size: 0.9em; letter-spacing: 0.3em; color: #666; margin-bottom: 10px; }
-        .chapter-title { font-size: 1.8em; font-weight: normal; margin: 0; }
-        .chapter-content p { text-indent: 1.5em; margin: 0 0 1em; }
+        .chapter-number { font-size: 0.85em; letter-spacing: 0.2em; color: #888; text-transform: uppercase; margin-bottom: 10px; }
+        .chapter-title { font-size: 1.8em; font-weight: normal; }
+        .chapter-content p { margin-bottom: 1.5em; text-align: justify; text-indent: 1.5em; }
         .chapter-content p:first-of-type { text-indent: 0; }
-        .chapter-content p:first-of-type::first-letter {
-            font-size: 3em;
-            float: left;
-            line-height: 1;
-            padding-right: 8px;
-            font-weight: bold;
-        }
-        hr { border: none; text-align: center; margin: 40px 0; }
-        hr::before { content: "• • •"; color: #999; letter-spacing: 0.5em; }
-        blockquote { margin: 20px 40px; font-style: italic; color: #444; }
-        .back-to-top { text-align: center; margin: 60px 0; }
-        .back-to-top a { color: #666; text-decoration: none; font-size: 0.9em; }
-        .word-count {
-            text-align: center;
-            color: #999;
-            font-size: 0.85em;
-            margin-top: 100px;
-            padding-top: 40px;
-            border-top: 1px solid #eee;
-        }
+        .chapter-content p:first-of-type::first-letter { font-size: 3.5em; float: left; line-height: 0.8; padding-right: 8px; padding-top: 4px; font-weight: bold; }
+        .chapter-content hr { border: none; text-align: center; margin: 40px 0; }
+        .chapter-content hr::before { content: "• • •"; color: #ccc; letter-spacing: 1em; }
+        .chapter-content blockquote { margin: 30px 40px; padding-left: 20px; border-left: 3px solid #ddd; font-style: italic; color: #555; }
+        .chapter-content strong { font-weight: 600; }
+        .chapter-content em { font-style: italic; }
+        .back-to-top { text-align: center; margin-top: 40px; }
+        .back-to-top a { color: #888; text-decoration: none; font-size: 0.85em; }
+        footer { text-align: center; padding: 60px 20px; color: #888; font-size: 0.9em; border-top: 1px solid #e0e0e0; margin-top: 60px; }
+        @media (max-width: 600px) { .toc-list { columns: 1; } .book-title { font-size: 1.8em; } }
     </style>
 </head>
-<body id="top">
-    <h1 class="book-title">THE BRAINCANDY STORY</h1>
-    <p class="author">A Novel by Roger Grubb</p>
-    
+<body>
+<div class="container" id="top">
+    <header>
+        <h1 class="book-title">The Braincandy Story</h1>
+        <p class="subtitle">A Novel</p>
+        <p class="author">by Roger Grubb</p>
+    </header>
     <nav class="toc">
-        <h2>TABLE OF CONTENTS</h2>
-        <ul class="toc-list">
-            <li><a href="#ch1"><span class="ch-num">1</span> The Hands</a></li>
-            <li><a href="#ch2"><span class="ch-num">2</span> The Carpenter Who Codes</a></li>
-            <li><a href="#ch3"><span class="ch-num">3</span> The Napkin</a></li>
-            <li><a href="#ch4"><span class="ch-num">4</span> The Dog</a></li>
-            <li><a href="#ch5"><span class="ch-num">5</span> The Ask</a></li>
-            <li><a href="#ch6"><span class="ch-num">6</span> The Build Begins</a></li>
-            <li><a href="#ch7"><span class="ch-num">7</span> The Vet's Hands</a></li>
-            <li><a href="#ch8"><span class="ch-num">8</span> First Blood</a></li>
-            <li><a href="#ch9"><span class="ch-num">9</span> The Money Problem</a></li>
-            <li><a href="#ch10"><span class="ch-num">10</span> Tuesday</a></li>
-            <li><a href="#ch11"><span class="ch-num">11</span> Five Hundred</a></li>
-            <li><a href="#ch12"><span class="ch-num">12</span> Fifty Million Dollars</a></li>
-            <li><a href="#ch13"><span class="ch-num">13</span> The War Room</a></li>
-            <li><a href="#ch14"><span class="ch-num">14</span> Priya</a></li>
-            <li><a href="#ch15"><span class="ch-num">15</span> The Lawyer Who Worked for Free</a></li>
-            <li><a href="#ch16"><span class="ch-num">16</span> The Money Arrives</a></li>
-            <li><a href="#ch17"><span class="ch-num">17</span> The Carpenter Testifies</a></li>
-            <li><a href="#ch18"><span class="ch-num">18</span> Zeta Rewards</a></li>
-            <li><a href="#ch19"><span class="ch-num">19</span> Cracks</a></li>
-            <li><a href="#ch20"><span class="ch-num">20</span> The Crack</a></li>
-            <li><a href="#ch21"><span class="ch-num">21</span> The Old Man's Money</a></li>
-            <li><a href="#ch22"><span class="ch-num">22</span> The Hit Piece</a></li>
-            <li><a href="#ch23"><span class="ch-num">23</span> One Hundred Thousand</a></li>
-            <li><a href="#ch24"><span class="ch-num">24</span> The Engineers</a></li>
-            <li><a href="#ch25"><span class="ch-num">25</span> David's Mirror</a></li>
-            <li><a href="#ch26"><span class="ch-num">26</span> A Million</a></li>
-            <li><a href="#ch27"><span class="ch-num">27</span> The Hearing</a></li>
-            <li><a href="#ch28"><span class="ch-num">28</span> The Vet and the Visionary</a></li>
-            <li><a href="#ch29"><span class="ch-num">29</span> The Resignation</a></li>
-            <li><a href="#ch30"><span class="ch-num">30</span> The Carpenter's Hands</a></li>
-            <li><a href="#ch31"><span class="ch-num">31</span> Mijo</a></li>
-            <li><a href="#ch32"><span class="ch-num">32</span> One Billion</a></li>
-            <li><a href="#ch33"><span class="ch-num">33</span> The Ring</a></li>
-            <li><a href="#ch34"><span class="ch-num">34</span> The Foundation</a></li>
-        </ul>
+        <h3>Contents</h3>
+        <ol class="toc-list">
+            <li><a href="#ch1">1. The Hands</a></li>
+            <li><a href="#ch2">2. The Carpenter Who Codes</a></li>
+            <li><a href="#ch3">3. The Napkin</a></li>
+            <li><a href="#ch4">4. The Dog</a></li>
+            <li><a href="#ch5">5. The Ask</a></li>
+            <li><a href="#ch6">6. The Build Begins</a></li>
+            <li><a href="#ch7">7. The Vet's Hands</a></li>
+            <li><a href="#ch8">8. First Blood</a></li>
+            <li><a href="#ch9">9. The Money Problem</a></li>
+            <li><a href="#ch10">10. Tuesday</a></li>
+            <li><a href="#ch11">11. Five Hundred</a></li>
+            <li><a href="#ch12">12. Fifty Million Dollars</a></li>
+            <li><a href="#ch13">13. The War Room</a></li>
+            <li><a href="#ch14">14. Priya</a></li>
+            <li><a href="#ch15">15. The Lawyer Who Worked for Free</a></li>
+            <li><a href="#ch16">16. The Money Arrives</a></li>
+            <li><a href="#ch17">17. The Carpenter Testifies</a></li>
+            <li><a href="#ch18">18. Zeta Rewards</a></li>
+            <li><a href="#ch19">19. Cracks</a></li>
+            <li><a href="#ch20">20. The Crack</a></li>
+            <li><a href="#ch21">21. The Old Man's Money</a></li>
+            <li><a href="#ch22">22. The Hit Piece</a></li>
+            <li><a href="#ch23">23. One Hundred Thousand</a></li>
+            <li><a href="#ch24">24. The Engineers</a></li>
+            <li><a href="#ch25">25. David's Mirror</a></li>
+            <li><a href="#ch26">26. A Million</a></li>
+            <li><a href="#ch27">27. The Hearing</a></li>
+            <li><a href="#ch28">28. The Vet and the Visionary</a></li>
+            <li><a href="#ch29">29. The Resignation</a></li>
+            <li><a href="#ch30">30. The Carpenter's Hands</a></li>
+            <li><a href="#ch31">31. Mijo</a></li>
+            <li><a href="#ch32">32. One Billion</a></li>
+            <li><a href="#ch33">33. The Ring</a></li>
+            <li><a href="#ch34">34. The Foundation</a></li>
+        </ol>
     </nav>
-
-    <div class="act-header">ACT ONE: THE IDEA</div>
+    <main>
+        <div class="act-header">ACT ONE: THE IDEA</div>
 
     <article class="chapter" id="ch1">
         <header class="chapter-header">
@@ -154,7 +95,7 @@
 <p>My hands don't belong on a keyboard.</p>
 <p>I know this because I'm looking at them right now, and they're ridiculous. Thick fingers, scarred knuckles, a thumbnail that grew back wrong after I dropped a joist on it in 1994. These are hands that have framed two hundred houses, hung ten thousand doors, sanded enough oak to build a forest backward. There's a callus on my right palm that's been there so long it has its own callus. My ex-wife used to say my hands looked like they'd been in a fight with a toolbox and lost.</p>
 <p>She wasn't wrong about much, Linda. Just about me.</p>
-<p>I'm sixty-two years old, I'm sitting in the Peet's on Solano Avenue in Albany, California, and I'm building something on a refurbished ThinkPad T480 I bought off eBay for $340, and it would make most people in Silicon Valley laugh until their kombucha came out their nose. A social media platform. Built by a carpenter. Who learned to code from YouTube videos at fifty-five.</p>
+<p>I'm sixty-two years old, I'm sitting in the Peet's on Solano Avenue in Berkeley, and I'm building something on a refurbished ThinkPad T480 I bought off eBay for $340, and it would make most people in Silicon Valley laugh until their kombucha came out their nose. A social media platform. Built by a carpenter. Who learned to code from YouTube videos at fifty-five.</p>
 <p>Go ahead. I'd laugh too.</p>
 <p>But here's the thing about hands like mine — they know when something fits. You run your fingers along a joint and you feel it, right down in the grain. Tight means right. Gaps mean trouble. It doesn't matter if it looks good from across the room. What matters is what happens when you press.</p>
 <p>And I've been pressing on this idea for two years, and it's tight. No gaps. It fits.</p>
@@ -162,8 +103,11 @@
 <hr>
 <p>Mia is twelve.</p>
 <p>She's my granddaughter — my son Kevin's kid — and she's the reason I stopped sleeping in November. Not because she's in trouble. Because I finally saw what she was doing.</p>
-<p>Kevin and his wife Amy brought Mia over for Sunday dinner, which in my apartment means spaghetti and whatever salad I can make look intentional. Kevin's a good man. Works at the State Department of Transportation, has a steady, careful life I couldn't give him when he was small. He forgave me for the drinking years, or says he did, which might be the same thing. Amy's a speech therapist. They're good people. Solid. I'm proud of them in a way that makes your chest hurt if you think about it too long.</p>
-<p>So Mia's at my kitchen table, and she's got her phone out — iPhone 15, lavender case, cracked corner she hasn't told Kevin about. She's scrolling TikTok. Making faces at videos. Occasionally she films herself doing something — a dance, a reaction, a lip sync to some Olivia Rodrigo track I can identify from the first three notes. I've done that since I was a kid. This game where I try to name everything before it names itself. License plates from the back of my father's Chevy at six years old. Songs from the first bar. Cars from the grille. Wood species from the grain before the saw touches it. My brain catalogs. It files. She posts her video. She checks the likes. She scrolls more.</p>
+<p>Kevin and his wife Amy brought Mia over for Sunday dinner, which in my apartment means De Cecco linguine with Rao's marinara — the only jarred sauce I'll use — and an iceberg wedge with supermarket tomatoes and Ken's Italian from the squeeze bottle. Kevin's a good man. Works at Caltrans, has a steady, careful life I couldn't give him when he was small. He forgave me for the drinking years — Beam and Coke, mostly, then just Beam — or says he did, which might be the same thing. Amy's a speech therapist at Kaiser in Richmond. They're good people. Solid. I'm proud of them in a way that makes your chest hurt if you think about it too long.</p>
+<p>So Mia's at my kitchen table, and she's got her phone out — iPhone 15, lavender case, cracked corner she hasn't told Kevin about. She's scrolling TikTok. Making faces at videos. Occasionally she films herself doing something — a dance, a reaction, a lip sync to some Olivia Rodrigo track I can identify from the first three notes. I've done that since I was a kid. This game where I try to name everything before it names itself. It started in the back seat of my father's Plymouth wagon — the '62 Fury with the tailfins, cream and turquoise, the one we took on road trips to visit my grandmother in Boise. I'd read license plates and try to guess the state before I could see the name. Then I moved to cars — identifying makes and models from the grille, the headlights, the shape of the taillights coming toward us in the dark. Songs from the first bar. Wood species from the grain before the saw touches it.</p>
+<p>It was the Hardy Boys that made it serious. I must have read fifty of those books between ages eight and twelve, and I'd race to figure out who done it before Frank and Joe did. I'd catalog the clues, test my theories, feel that little surge of satisfaction when I was right. My brain learned to file things. To connect patterns. To research.</p>
+<p>My ex used to say I could disappear into a topic for days. She wasn't wrong. I've spent entire weekends understanding how municipal bonds work, how sourdough starters actually function, how the attention economy extracts value from human beings. I don't just read — I absorb. Facts, figures, systems. The way things connect underneath. My friends call it obsessive. I call it how I'm built.</p>
+<p>Mia's brain catalogs too. I can see it. She posts her video. She checks the likes. She scrolls more.</p>
 <p>Every grandparent in America has seen this. We shake our heads and say "kids these days" and go back to whatever we were doing, which for most of us is the same thing on a bigger screen.</p>
 <p>But that night — November 12th, my mother's birthday — I didn't look away. I watched.</p>
 <p>I watched Mia scroll for forty-five minutes. In that time, she consumed maybe two hundred pieces of content. She filmed three videos and posted them. She liked sixty or seventy things. She commented on a dozen more. She shared a video with a friend. She followed two new accounts. She tapped on an ad for Nike Air Max 97s, lingered for eight seconds, then scrolled past.</p>
@@ -179,7 +123,9 @@
 <hr>
 <p>People want this part to be a movie montage — the old guy squinting at a screen, light bulb moments, triumphal music. It wasn't like that. It was two years of feeling stupid. Two years of YouTube tutorials where twenty-three-year-olds talked too fast and assumed I knew what a "dependency" was. Two years of typing things wrong and getting error messages that might as well have been written in Mandarin.</p>
 <p>I started in 2019. I was fifty-five. I'd been sober for fifteen years, which means I'd been alive — really alive, not just showing up — for fifteen years. Sobriety gives you time. Enormous, terrifying amounts of time. Time you used to fill with bottles and blackouts is now just... there. Waiting. Asking you what you're going to do with it.</p>
-<p>The carpentry years ended when I was thirty. Three herniated discs and a doctor who said "you can keep lifting or you can keep walking, but you can't keep doing both." So I traded the nail gun for a desk — construction technology, building the project management software that coordinates how buildings get built. Ten years of learning how information flows through an organization, how the logic of code and the logic of carpentry are the same logic wearing different clothes. I vested my stock options at year ten. Walked away because I'd learned what I needed to learn.</p>
+<p>The carpentry years ended when I was thirty. Three herniated discs and a doctor at Alta Bates who said "you can keep lifting or you can keep walking, but you can't keep doing both." So I traded the nail gun for a desk — construction technology, building the project management software that coordinates how buildings get built. Ten years of learning how information flows through an organization, how the logic of code and the logic of carpentry are the same logic wearing different clothes. I vested my stock options at year ten. Walked away because I'd learned what I needed to learn.</p>
+<p>But before the discs blew out, there were eleven years of framing houses. My father — a civil engineer for Local 3, quiet man, hands like mine — told me when I was nineteen: "There's a high-rise going up in the Financial District. You want on it, you do it yourself. Apply. Join the union. Go to school four nights a week while you swing a hammer during the day." So I did. Four years of night classes at Laney College, four years of apprenticeship, and two months before my twenty-first birthday I bought my first house — a two-bedroom bungalow in El Cerrito, $47,000, 1983 dollars, which felt like a fortune and was. That's what happens when you work fifty hours a week and can't spend money because you're too tired. It accumulates.</p>
+<p>The union taught me something else: when it rains, carpenters don't work. December through March, the jobs dried up, and suddenly I had weeks of empty time and a paycheck from unemployment. Most guys drank through winter. I skied. Squaw Valley, Mammoth, Jackson Hole, Telluride. Black diamonds, then double blacks. I got good. By twenty-four I had the travel bug — passport stamps from Portugal, Thailand, Morocco, places where a young man with callused hands and union wages felt rich. Twenty countries before I turned thirty. Wine, women, and song, as my German mother used to warn me. She quoted Martin Luther: "Wer nicht liebt Wein, Weib und Gesang, der bleibt ein Narr sein Leben lang." <em>Who loves not wine, women, and song remains a fool his whole life long.</em> I took that as permission. She meant it as caution.</p>
 <p>Real estate came next. Fifteen years — as a realtor first, then building a staging company, then an investment company. I watched money make generous people more generous and frightened people dangerous. I watched first-time buyers sign papers with shaking hands, making the biggest financial decision of their lives across a table from a stranger. I learned to read faces for what's underneath, for the stress that doesn't show until you push.</p>
 <p>And through all of it, I built furniture. Live-edge walnut tables, dovetail bookshelves, a rocking chair for my mother that she says is the only place her back doesn't hurt. The hands needed something real to hold.</p>
 <p>Then Kevin got me a used MacBook Air for Christmas. Silver aluminum, 13-inch screen, a sticky "e" key he swore would fix itself. "For email, Dad." He had no idea.</p>
@@ -200,7 +146,7 @@
 <p>The money's already there. The advertisers are already paying. The only question is who gets it.</p>
 <p>Right now, they get it. All of it.</p>
 <p>I'm building something that changes that.</p>
-<p>It's called Braincandy. And by the time you're done reading this story, you'll understand why some very powerful people tried to stop me, why a woman who heals animals for a living made me believe I could heal something bigger, and why a sixty-two-year-old carpenter from Albany, California is the last person they expected — and the only person who could.</p>
+<p>It's called Braincandy. And by the time you're done reading this story, you'll understand why some very powerful people tried to stop me, why a woman named Sofia Reyes — a veterinarian, five-foot-four, hands steadier than mine ever were, a scar on her left thumb from a German Shepherd who didn't want stitches — made me believe I could heal something bigger than dogs, and why a sixty-two-year-old carpenter from Albany, California is the last person they expected — and the only person who could.</p>
 <p>I've got a dog to pick up first. Sixty-pound pit bull with a cone on his head and a bill I can't afford.</p>
 <hr>
         </div>
@@ -248,28 +194,34 @@
 <p>I learned HTML first. Then CSS. Then JavaScript, which is where the real pain begins.</p>
 <p>JavaScript is a language designed by people who are much smarter than me but apparently hate clarity. There's a function called `this` that refers to different things depending on where you're standing when you call it. I once spent an entire Saturday understanding why `0.1 + 0.2` doesn't equal `0.3` in JavaScript. It equals `0.30000000000000004`. I called Marcus and told him I thought my computer was broken. He laughed so hard he pulled a muscle.</p>
 <p>But I kept going. You want to know why? Because I'm an alcoholic.</p>
-<p>That sounds like a non sequitur. It's not. Eighteen years of AA teaches you something that Stanford computer science apparently doesn't: how to sit with discomfort. How to be bad at something and not quit. How to show up every single day to a process that is humiliating and slow and occasionally makes you want to throw your laptop out a window, and do it anyway, because the alternative is going back to the person you were before, and that person is dead.</p>
+<p>That sounds like a non sequitur. It's not. Twenty-two years of AA teaches you something that Stanford computer science apparently doesn't: how to sit with discomfort. How to be bad at something and not quit. How to show up every single day to a process that is humiliating and slow and occasionally makes you want to throw your laptop out a window, and do it anyway, because the alternative is going back to the person you were before, and that person is dead.</p>
+<p>I got sober at forty. Recovery was the last house at the end of the street for me — the place you go when every other door has closed. Now I've got twenty-two years of coins in a drawer, little bronze chips with a "P" embossed on each one. One day at a time, one chip at a time. The simplicity of it used to annoy me. Now I understand: simple doesn't mean easy. Simple means you can hold onto it when everything else falls apart.</p>
+<p>Here's what sobriety taught me that nothing else could: it was me. The whole time. I was the one getting in my own way. Not the industry, not the economy, not my back, not Linda, not bad luck. Me. My choices. My escapes. My refusal to sit still long enough to feel what I was feeling. Once I understood that — really understood it, not just said it in a meeting — I could finally redirect my energy. Focus it. Stop scattering myself across wine and women and song and actually build something that lasted.</p>
+<p>The days of wine, women, and song are over. Well — the wine is gone. The song... I still hum in the workshop. And the women — there's only one now, and she's worth more than all the rest combined. But that's a later chapter.</p>
 <p>Step One: admit you are powerless. I am powerless over JavaScript's type coercion. I accept this.</p>
 <p>Step Ten: continue to take personal inventory. My code has bugs. My code will always have bugs. I will find them and fix them and not pretend they don't exist.</p>
 <p>Step Twelve: carry the message. Build something that helps someone. That's the whole game.</p>
 <hr>
 <p>By 2021, I could build things. Real things. Not beautiful things — my code looked like a construction site, all scaffolding and exposed wiring. But they worked.</p>
-<p>I built a tool that calculated lumber quantities for deck projects. I built a sobriety milestone tracker — you entered your sober date and it told you how many days, hours, and minutes you'd been free, updating in real time. I showed it at a meeting and a woman named Dolores, sixty-seven years sober, watched the seconds tick up on her phone and said, "Every one of those seconds was a war," and I had to leave the room.</p>
+<p>I built a tool that calculated lumber quantities for deck projects. I built a sobriety milestone tracker — you entered your sober date and it told you how many days, hours, and minutes you'd been free, updating in real time. I showed it at a meeting in the basement of St. Joseph's on San Pablo — folding metal chairs, Folgers from a Mr. Coffee that had been on since 5 AM, Styrofoam cups — and a woman named Dolores Whitman, sixty-seven years sober, watched the seconds tick up on her phone and said, "Every one of those seconds was a war," and I had to leave the room. Dolores drove a '94 Buick LeSabre she called "The Boat." She died last spring, sixty-nine years sober. I still have the calculator running on my phone. Her counter keeps ticking.</p>
 <p>I built a website for my friend Terry's landscaping business that was so ugly Terry's wife asked if it was "still loading." I said yes and quietly redesigned the entire thing at two in the morning.</p>
-<p>None of this was going to change the world. But each thing taught me how to think in systems.</p>
+<p>Then I built something that actually worked. Paper Vault — a document organization system for real estate transactions. Nothing fancy. Just a way to keep closing documents organized and searchable. I sold it to a title company in Walnut Creek for enough money to pay off my truck. Then SellFast.Now — an AI-powered Craigslist alternative that helped people write better listings and price their items correctly. That one's still running. Still making a little money every month. Nothing that would impress a VC, but enough to prove I could build something people would pay for.</p>
+<p>Each one was a stepping stone. One brick on top of another. My mother used to say — in her practical German way — that the greatest cathedral and the outhouse behind her grandmother's farmhouse had one thing in common: they both started with a cornerstone. Place it correctly, and everything that follows has a chance to be both practical and beautiful. Place it wrong, and it doesn't matter how good your bricks are.</p>
+<p>The deck calculator was a cornerstone. Paper Vault was a cornerstone. SellFast was a cornerstone. Each one taught me something I'd need for the next thing. And the next thing — the thing I didn't know I was building toward — was Braincandy.</p>
+<p>None of this was going to change the world. But each thing taught me how to think in systems. How to research a problem until I understood it from the inside. How to build something that solved a real need for real people.</p>
 <p>A house is a system. The foundation holds the frame, the frame holds the roof, the roof sheds the water, the water goes to the ground, the ground supports the foundation. Every piece connects to every other piece. A good carpenter holds the entire system in his head at once. Software is the same thing, except the pieces are invisible and the connections number in the thousands.</p>
-<p>Somewhere between the deck calculator and my mother's recipe app, I realized: I might not write code like a Silicon Valley engineer. But I think about systems like a man who's built two hundred of them with his bare hands. And that might matter more.</p>
+<p>I might not write code like a Silicon Valley engineer. But I think about systems like a man who's built two hundred of them with his bare hands. And I research like a man who spent his childhood trying to solve Hardy Boys mysteries before Frank and Joe did. That combination — the builder and the detective — might matter more than a Stanford degree.</p>
 <hr>
 <p>Without Marcus, there is no Braincandy. There's just a retired carpenter with a laptop and a grudge.</p>
 <p>Marcus Webb is the smartest person I've ever met, and smart is what got him into trouble in the first place.</p>
-<p>We met at a meeting in 2012. He'd been sober for three months and looked like he'd been sober for three minutes — shaking, sweating, eyes like two cigarette burns in a bedsheet. He was forty-one, and he'd just lost everything: Goldman Sachs, the apartment in Tribeca, the wife who loved him, the daughter who didn't understand why Daddy wasn't coming home.</p>
+<p>We met at a meeting in 2012. He'd been sober for three months and looked like he'd been sober for three minutes — shaking, sweating, eyes like two cigarette burns in a bedsheet. He was forty-one, and he'd just lost everything: Goldman Sachs, the apartment on Duane Street in Tribeca — 2,400 square feet, exposed brick, a view of the Hudson he never looked at — Patricia, who'd loved him since Wharton and stayed through fifteen years of hundred-hour weeks, and Nia, their daughter, who was twelve and didn't understand why Daddy wasn't coming home.</p>
 <p>Marcus didn't leave Wall Street. Wall Street left him. He was a quant — one of the best — during the era when quants were gods. Derivatives, risk portfolios, arbitrage windows measured in milliseconds. Numbers obeyed Marcus. Willingly, naturally, as if they'd been waiting for someone who understood them.</p>
 <p>Then the game went algorithmic. Machine learning, high-frequency trading, systems that processed data at speeds no human brain could match. Marcus was forty years old watching twenty-six-year-olds write programs that did in three seconds what used to take him a day of brilliant calculation. His edge became a museum piece.</p>
 <p>He couldn't adapt. For a man whose entire identity was built on being the smartest person in every room, being the slowest was a kind of death.</p>
 <p>The cocaine wasn't the cause. It was the response. He snorted his way through the last eighteen months at Goldman desperately, knowing it wasn't working, unable to stop. They didn't fire him for performance. They didn't have to. He was quietly restructured into a position that didn't exist. Wall Street's version of being set out on the ice.</p>
 <p>Marcus is Black, six-foot-four, and has a voice that makes whatever he says sound like it matters. He could read you a grocery list and you'd think it was a manifesto.</p>
-<p>But people assume a former Goldman quant must be brilliant at everything. He's not. Marcus can model the financial future of a nation-state but cannot remember where he parked his car. He once called me from the Target on Eastshore Highway asking which detergent to buy because there were too many options and the decision tree was "not yielding a clear optimal outcome." Those words. In a Target. To a carpenter.</p>
-<p>His ex-wife had handled everything — bills, social calendar, parent-teacher conferences, the basic logistics of being a human being. When she left, Marcus discovered that life is full of systems he'd never bothered to learn. He couldn't cook anything that didn't come with microwave instructions. He showed up to his first day of community college teaching with his shirt inside out. He once paid a $400 electric bill because he didn't know you could dispute it.</p>
+<p>But people assume a former Goldman quant must be brilliant at everything. He's not. Marcus can model the financial future of a nation-state but cannot remember where he parked his car — a 2016 Prius, silver, with a "Coexist" bumper sticker his daughter Nia put on as a joke. He once called me from the Target on Eastshore Highway asking which detergent to buy because there were too many options and the decision tree was "not yielding a clear optimal outcome." Those words. In a Target. To a carpenter.</p>
+<p>His ex-wife had handled everything — bills, social calendar, parent-teacher conferences, the basic logistics of being a human being. When she left, Marcus discovered that life is full of systems he'd never bothered to learn. He couldn't cook anything that didn't come with microwave instructions. He showed up to his first day of community college teaching wearing a Brooks Brothers oxford inside out, missing a button he hadn't noticed was gone. He once paid a $400 PG&E bill because he didn't know you could dispute it.</p>
 <p>Absolute genius in his lane. Absolutely lost in every other lane.</p>
 <p>We didn't become friends right away. Recovery doesn't work like that. You circle each other. You listen. You recognize something — not similarity, but a kind of damage that rhymes. His damage was brilliance in a system that outgrew him. Mine was anesthesia against a life I didn't think I deserved.</p>
 <p>The friendship happened slowly, then all at once. Coffee at Mel's on San Pablo after a meeting, talking until two in the morning. Then again. Then weekly. Then: "You want to come over for dinner? My apartment's small but the pasta's good." He made the pasta. Terrible. Noodles boiled for twenty minutes, ketchup for sauce. I ate every bite.</p>
@@ -302,7 +254,7 @@
             <h2 class="chapter-title">The Napkin</h2>
         </header>
         <div class="chapter-content">
-<p>The napkin is framed now. It hangs on the wall of my apartment between a photo of my kids at Coney Island and a watercolor my mother painted of the house I grew up in. Visitors think it's a joke. It's not. It's the most important thing I've ever written, and I wrote it with a pen that was running out of ink on a napkin I stole from a dispenser at Peet's.</p>
+<p>The napkin is framed now. It hangs on the wall of my apartment between a photo of my kids at Coney Island and a watercolor my mother painted of the house I grew up in on Ordway Street. Visitors think it's a joke. It's not. It's the most important thing I've ever written, and I wrote it with a blue Bic ballpoint I'd borrowed from Dani, almost dry, on a napkin I pulled from the dispenser at Peet's.</p>
 <p>It says:</p>
 <p style="text-align:center; font-style:italic;">$250B/year. Their money? No. OURS.</p>
 <p style="text-align:center; font-style:italic;">User gets 65%. Platform gets 20%. Creators get 10%. Reserve 5%.</p>
@@ -318,7 +270,7 @@
 <p>And that's the equal split. A heavy Instagram user in the United States might be worth $80 to $120 per year in ad revenue. A TikTok power creator? Hundreds, maybe thousands.</p>
 <p>All of them getting paid exactly zero.</p>
 <p>I'd known this for months. That Tuesday morning, the fact found its urgency.</p>
-<p>Two women at the next table. Late twenties. One showing the other something on her phone.</p>
+<p>Two women at table six — MacBooks, oat milk lattes, matching Lululemon. Late twenties. One showing the other something on her phone.</p>
 <p>"Look — I posted that video Saturday and it already has forty thousand views."</p>
 <p>"Forty thousand? That's insane. Are you making money from it?"</p>
 <p>"No, I don't have enough followers for the creator fund. You need like ten thousand."</p>
@@ -426,7 +378,7 @@
 <p>Biscuit was lying on the kitchen floor making sounds I'd never heard a dog make. Not whimpering. Something deeper, from inside his body. His belly was rigid. His eyes were wild. He looked at me not asking me to make it stop, just asking me not to leave.</p>
 <p>I Googled "emergency vet Albany" and found the Pet Emergency & Specialty Center of Marin. Open 24 hours. Twenty-two minutes on I-580.</p>
 <p>I carried Biscuit to the car. Sixty pounds of shaking dog in my arms. He pressed his face into my neck the whole ride, and I drove with one hand and held him with the other and I talked to him the entire time. "You're okay, buddy. You're going to be okay." Lying to a dog with the same conviction I used to lie to myself.</p>
-<p>The clinic was bright — hospital bright, fluorescent. A woman in the waiting room holding a cat, crying quietly. A man with a bandaged German Shepherd. The receptionist — a kid with a nose ring and tired eyes — took one look at Biscuit and said, "Bring him back."</p>
+<p>The clinic was bright — hospital bright, fluorescent. A woman in scrubs — night shift nurse at Kaiser, maybe — holding a tabby wrapped in a beach towel, crying quietly. A guy in Carhartt coveralls with a German Shepherd whose front leg was splinted with what looked like PVC pipe and duct tape — field repair from someone who knew their way around a worksite. The receptionist — a kid with a nose ring and tired eyes — took one look at Biscuit and said, "Bring him back."</p>
 <p>They took him from me. I stood in the hallway with his leash in my hand and nothing to do. Nothing to build. Nothing to fix. Just waiting.</p>
 <p>I hate waiting. It's the helplessness. In a workshop, I'm in control. At my laptop, I'm in control. But waiting in a vet's hallway at 9 PM, listening to sounds I can't identify coming from behind a door I can't open — that's surrender. And surrender and I have a complicated relationship.</p>
 <p>Forty minutes.</p>
@@ -511,7 +463,7 @@
 <hr>
 <p>Jake Morrison showed up to our first video call from what appeared to be a closet. Not metaphorically — an actual closet. Hangers behind his head. A winter coat draped over a chair that was definitely not designed to be in a closet. He was thin, sharp-featured, with dark circles that said he'd been staring at screens since before screens were flat.</p>
 <p>"Sorry about the background. My roommate's doing a podcast in the living room."</p>
-<p>"I once worked on a job site next to a guy who played accordion during lunch. This is fine."</p>
+<p>"I once worked on a job site next to Tommy Ferreira, who played 'Lady of Spain' on a Hohner accordion every lunch break, rain or shine. This is fine."</p>
 <p>He laughed. Marcus was on the call too, wearing his professor face — thoughtful, measured, slightly intimidating. When Marcus wants to evaluate someone, he goes quiet and lets them talk.</p>
 <p>Jake filled the silence immediately. Which told us he was young. But what he said told us he was brilliant.</p>
 <p>"I've been thinking about this since you sent me the napkin." He pulled up handwritten notes, diagrams, technical specifications. He'd done this in fourteen hours. "The real-time counter is the easy part. I've built those. The hard part is the payment infrastructure. You need to process micropayments — fractions of a cent — at scale, in real time, and settle them without the transaction fees eating your margin. Traditional payment processors charge twenty to thirty cents per transaction. If you're paying someone three-tenths of a cent per ad interaction, the processing fee is a hundred times the payment."</p>
@@ -802,7 +754,7 @@
 <p>The obvious answer was a trap.</p>
 <hr>
 <p>My first pitch meeting was on Sand Hill Road. First Light Ventures. Angel group, $250K to $500K, 10-15% of the company. I drove down in my 2011 Ford F-150 with 187,000 miles and a passenger seat I'd vacuumed three times that still looked like a lumberyard. Rush hour traffic from the East Bay stretched the drive to ninety minutes. Time enough to rehearse the pitch and wonder if I was wasting everyone's afternoon.</p>
-<p>The co-working space had glass walls, exposed brick, and furniture that cost more than my truck. I was wearing khakis and a button-down Linda had bought me in 2008.</p>
+<p>The co-working space had glass walls, exposed brick, and Steelcase chairs and Herman Miller tables that cost more than my F-150. I was wearing Dockers khakis, pleated, and an L.L.Bean oxford I'd bought for my mother's funeral in 2011 and worn maybe four times since.</p>
 <p>I delivered the pitch. Twelve slides. Fifteen minutes. Direct, no jargon. Here's the problem, here's the solution, here's the math, here's the team.</p>
 <p>They asked good questions. Sharp questions. Then came the one I'd been dreading.</p>
 <p>"What's your experience in tech?"</p>
@@ -896,7 +848,7 @@
 <p>"Tuesday."</p>
 <hr>
 <p>Rinconcito was the size of a large bathroom. Six tables. A kitchen you could see from every seat. Walls covered in photographs of a country I'd never been to but could feel in the room. The smell hit you at the door: pupusas on the griddle, curtido fermenting, black beans simmering with an authority that said they'd been on the stove since before we arrived and would be there after we left.</p>
-<p>Sofia was already there. Dark green blouse, jeans broken in properly, small silver hoops. Boots — ankle-height, leather, low heel, side zip. Her hair was down, which shouldn't have mattered but did. Hair up is the surgeon. Hair down is the person. I was meeting the person for the first time.</p>
+<p>Sofia was already there. Dark green silk blouse — Everlane, I'd learn later, her one indulgence — jeans broken in properly, Frye ankle boots, the kind you resole because they're worth it. Small silver hoops from a shop in Oaxaca. Her hair was down, which shouldn't have mattered but did. Hair up is the surgeon. Hair down is the person. I was meeting the person for the first time.</p>
 <p>She'd ordered curtido and chips, which told me she was someone who takes charge.</p>
 <p>Here's what dating at sixty-two is: an inventory. Here's what I have. Here's what's broken. Here's what still works. Take it or leave it, because the energy required to pretend is energy I no longer have. Two failed marriages teach you things about yourself you'd rather not know. Carol left because I was a drunk and a ghost. She was right to leave. Linda and I — sober by then, present — couldn't survive her own battle with pills. Leaving a woman who's drowning because you know you'll drown with her is the right decision and a decision that leaves a scar you carry forever.</p>
 <p>So here I was, across from a woman in a green blouse, with two divorces and no interest in pretending.</p>
@@ -969,7 +921,7 @@
 <p>Marcus forwarded me the text. I read it six times. Then I printed it and put it on the wall.</p>
 <p>The wall was getting full.</p>
 <hr>
-<p>The problem with five hundred users was the same problem we'd had with fifty: the Market was mostly fake. We'd expanded from stock photos to a handful of real local businesses — Peet's Coffee on Solano, Pegasus Books on Shattuck, a dog groomer called Mudpuppy's that Sofia had recommended, but the ad inventory was thin. Users would swipe through the Discovery Cards in three or four minutes and hit the bottom. Nothing left to engage with. Nothing left to earn from.</p>
+<p>The problem with five hundred users was the same problem we'd had with fifty: the Market was mostly fake. We'd expanded from stock photos to a handful of real local businesses — Peet's Coffee on Solano, Pegasus Books on Shattuck where Amy Chen had been ordering obscure poetry since 1985, Mudpuppy's on Gilman run by a woman named Dale who'd groomed Biscuit since his first bath — but the ad inventory was thin. Users would swipe through the Discovery Cards in three or four minutes and hit the bottom. Nothing left to engage with. Nothing left to earn from.</p>
 <p>We needed advertisers. Real ones. National ones. Brands with budgets that could fill the Market with content worth seeing and worth paying users for.</p>
 <p>But national brands don't advertise on platforms with five hundred users. They advertise on platforms with five hundred million users. The gap between where we were and where we needed to be was so vast it had its own weather system.</p>
 <p>Jake proposed a solution at 2 AM on a Wednesday, which was when Jake proposed most of his solutions, because Jake's brain operated on a schedule that had no relationship to the sun.</p>
@@ -1039,7 +991,7 @@
 <p>"Be careful. If it's him, we need to know why. If it's not him, we need to know who."</p>
 <p>"And if we can't find out?"</p>
 <p>"Then we build the house anyway and hope the crack doesn't spread."</p>
-<p>I drove Sofia home. She lived in a small house in El Cerrito — a suburb that's really just Albany pretending to be somewhere else — with a yard she didn't have time to maintain and a front porch she'd told me she sat on approximately twice a year. I walked her to the door because my mother raised me to walk women to their doors and because the twelve extra seconds of proximity were worth the cold.</p>
+<p>I drove Sofia home. She lived in a small house in El Cerrito — a 1940s bungalow she'd bought in 2008 when prices were low and hope was scarce — with a yard she didn't have time to maintain and a front porch she'd told me she sat on approximately twice a year. Her Subaru Outback, forest green, 2019, dog hair permanently embedded in the back seat from emergency house calls, sat in the driveway. I walked her to the door because my mother raised me to walk women to their doors and because the twelve extra seconds of proximity were worth the cold.</p>
 <p>"Exciting night," she said.</p>
 <p>"I'm sorry about the phone."</p>
 <p>"Don't be sorry. This is what you're building. I knew that when I sat down." She looked at me with the direct gaze that was so specifically Sofia — unguarded, assessing, kind. "Roger. Whatever's coming, and something is coming, I can feel it, don't let it change the thing you're building. The thing on the napkin. The 65 percent."</p>
@@ -1339,7 +1291,7 @@
 <p>She added what she called "moments of delight." When you cashed out, the counter didn't just reset — it released a spray of tiny golden particles that dispersed across the screen like dandelion seeds. When you referred a friend and they signed up, a small animation played: two hands clasping. When your daily earnings passed a dollar for the first time, a message appeared: "Your first dollar. Many more to come."</p>
 <p>"Is the dandelion thing too much?" I asked.</p>
 <p>"It's the exact right amount of too much. People need to feel rewarded. Not with dopamine — with warmth. The difference between manipulation and delight is whether the user knows you're doing it. We're not hiding anything. We're celebrating."</p>
-<p>Jake integrated her designs in real time. He'd watch her create a screen in Figma, then build it in code before she'd finished the next one. They developed a rhythm — Priya designing at the small desk in my workshop on a 12.9-inch iPad Pro with an Apple Pencil, Jake coding at the folding table, both wearing AirPods Pro, communicating entirely through a shared screen and occasional pointing. They didn't speak for hours. Then one of them would say something like "the border radius on the card component should be twelve not eight" and the other would nod and they'd return to silence.</p>
+<p>Jake integrated her designs in real time. He'd watch her create a screen in Figma, then build it in code before she'd finished the next one. They developed a rhythm — Priya designing at the Craigslist desk in my workshop — oak, scratched, $40 from a woman in Kensington moving to Boise — on a 12.9-inch iPad Pro with an Apple Pencil, Jake coding at the folding table, both wearing AirPods Pro, communicating entirely through a shared screen and occasional pointing. They didn't speak for hours. Then one of them would say something like "the border radius on the card component should be twelve not eight" and the other would nod and they'd return to silence.</p>
 <p>Marcus watched this from his corner and said to me, quietly: "We have a team now."</p>
 <p>He was right. We did. Four people. A carpenter, a quant, an engineer, and a designer. Four people with combined savings of less than a used car, working from a 740-square-foot apartment, eating pierogi for dinner three nights a week, building something that a $900 billion company had just declared war on.</p>
 <p>Four. Against thirty-seven thousand.</p>
@@ -1411,7 +1363,7 @@
 <p>Silence. The Teddy silence, which was different from the Marcus silence. Marcus went quiet when he was calculating. Teddy went quiet when he was deciding.</p>
 <p>"If you retained me," he said, "it would cost you nothing. Because your case is the case I've been waiting for."</p>
 <hr>
-<p>Teddy drove to Albany on a Saturday. He arrived in a car that was older than Jake — a 2002 Honda Accord with a rear bumper held on by what appeared to be optimism — and walked into my apartment carrying a banker's box full of documents and a sandwich he was actively eating.</p>
+<p>Teddy drove to Albany on a Saturday. He arrived in a car that was older than Jake — a 2002 Honda Accord EX, champagne gold, 247,000 miles, rear bumper held on by a bungee cord and faith — and walked into my apartment carrying a banker's box full of documents and a Subway Italian BMT he was actively eating, lettuce falling onto my floor.</p>
 <p>He was fifty-eight. Puerto Rican — his family was from Ponce. Short, thick, with a mustache that belonged in a different decade and eyebrows that moved independently of each other like two caterpillars having separate conversations. He wore a suit that had been expensive once — Hart Schaffner Marx, I guessed from the lapel width and the canvas construction visible where the lining had separated at the cuff — a tie that had never been expensive, and shoes that told the truth about how much money he made fighting patent trolls for free: Johnston & Murphy, the Melton cap toe, resoled twice, polished with the discipline of a man who respects what he can't afford to replace.</p>
 <p>He looked around my apartment. Saw the whiteboards. Saw the napkin. Saw the cease-and-desist. Saw the three new letters spread on the table like a losing hand of cards.</p>
 <p>"Nice office," he said. Not sarcastically. Warmly. The way someone says it when they recognize that important things happen in small rooms.</p>
@@ -2032,7 +1984,7 @@
 <p>Marcus was right. He usually was. But being right didn't make it easier. Because I was about to sit across from a young man I cared about and tell him I knew he'd broken my trust, and I didn't know which would be worse — his excuse or his absence.</p>
 <hr>
 <p>I waited until Sunday. Tuesdays were for Sofia. Sundays were for truth.</p>
-<p>Jake came to the apartment at 10 AM, as usual. Coffee. Laptop. Headphones. The routine that had become as familiar to me as the sound of my own saw — the familiar rhythm of Jake Morrison preparing to build.</p>
+<p>Jake came to the apartment at 10 AM, as usual. Coffee from the Blue Bottle on Webster — his one expense, $5.50 a day, which at $180,000 in debt made no financial sense but kept him human. His laptop — a 2021 MacBook Pro, 14-inch, M1 Max, covered in stickers from conferences he'd attended when he still believed in Silicon Valley. Headphones. The routine that had become as familiar to me as the sound of my own saw — the familiar rhythm of Jake Morrison preparing to build.</p>
 <p>"Jake. Sit down."</p>
 <p>He looked at me. Read my face. Sat down.</p>
 <p>I put the access logs on the table. The four late-night exports. The timestamps. The file sizes.</p>
@@ -2111,7 +2063,7 @@
 <p>"Tell me," he said.</p>
 <p>I told him. The whole thing. Not the pitch — the story. From Mia scrolling TikTok to the napkin to the prototype to the beta to the growth to the patent trolls to Zeta Rewards to ten thousand users and counting. I told it the way I'd tell it to a friend — direct, unpolished, with the rough edges left in because the rough edges are where the truth lives.</p>
 <p>Marcus supplemented with numbers when numbers were needed. The Willing Attention Thesis. The engagement data. The revenue projections. The comparison with Zeta Rewards. The math that proved, line by line, that willing attention was worth more than stolen attention.</p>
-<p>JP listened the way rich men listen when they've heard a thousand pitches and are tired of being sold to — with patience, with skepticism, with the attention that separates curiosity from politeness. He didn't interrupt. He didn't ask questions during the presentation. He drank his terrible coffee and he watched and he waited.</p>
+<p>JP listened the way rich men listen when they've heard a thousand pitches and are tired of being sold to — with patience, with skepticism, with the attention that separates curiosity from politeness. He didn't interrupt. He didn't ask questions during the presentation. He drank his instant Folgers — the red plastic container, probably from the Reagan administration — and he watched and he waited.</p>
 <p>When I finished, he was quiet for twenty seconds. I counted. Then he said something I didn't expect.</p>
 <p>"I built my first telecom tower in 1983. In Thiès, Senegal. My mother's hometown. The government wouldn't fund it. The international agencies wouldn't fund it. The World Bank said the return on investment was 'insufficient for the region's development trajectory,' which is a fancy way of saying they didn't think African people needed telephones."</p>
 <p>He stood. Walked to the window.</p>
@@ -2932,10 +2884,10 @@
 <p>"Five million. And Roger?"</p>
 <p>"Yeah?"</p>
 <p>"The counter just crossed half a billion dollars. Total payments to users since launch. Five hundred million dollars that used to go to corporations and now goes to people."</p>
-<p>I sat down on the workshop stool. The one I'd built twenty-five years ago, before sobriety, before code, before Braincandy, before Sofia. The stool creaked the way old things creak — not from weakness but from familiarity, the wood settling into the shape of a man who'd been sitting on it for two decades.</p>
+<p>I sat down on the workshop stool. The one I'd built twenty-five years ago — white oak, three legs, the seat worn to a shine by two decades of sitting — before sobriety, before code, before Braincandy, before Sofia. The stool creaked the way old things creak — not from weakness but from familiarity, the wood settling into the shape of a man who'd been sitting on it for two decades.</p>
 <p>"Half a billion," I said.</p>
 <p>"Half a billion. And accelerating."</p>
-<p>I looked at the workshop. The tools on the pegboard. The sawdust on the floor. The black walnut offcuts from Sofia's sign. The smell of tung oil and cedar and time.</p>
+<p>I looked at the workshop. The tools on the pegboard — a DeWalt 20V drill, a Makita circular saw, a Stanley 25-foot tape measure with the clip broken off, chisels I'd bought at a garage sale in 1992 and sharpened so many times the blades were half their original width. The sawdust on the floor. The black walnut offcuts from Sofia's sign. The smell of tung oil and cedar and time.</p>
 <p>"Marcus. Do you remember the napkin?"</p>
 <p>"I remember the napkin."</p>
 <p>"Sixty-five, twenty, ten, five. That's what I wrote. Those four numbers. On a napkin. At the Peet's on Solano. And now there's half a billion dollars flowing through those numbers."</p>
@@ -3264,7 +3216,7 @@
 <p>It took three days. Three days of turning and sanding and fitting and finishing, and on the fourth day I held it up to the workshop light and looked through it the way you look through a ring to check for true — for the perfect circle, the absence of wobble, the proof that the thing you made is honest.</p>
 <p>It was honest.</p>
 <hr>
-<p>I proposed on a Tuesday. Our Tuesday. At Rinconcito, in our booth — the one by the window, the one with the wobble in the table leg that I'd shimmed with a folded sugar packet three months ago and that Lupe had never fixed because she'd told me "if you fixed it, it's fixed" — after pupusas and before horchata, because timing matters and because the middle of a meal is the most honest part — you've relaxed into the food, you've stopped performing, you're just two people at a table being who they are.</p>
+<p>I proposed on a Tuesday. Our Tuesday. At Rinconcito Salvadoreño, in our booth — the one by the window, the one with the wobble in the table leg that I'd shimmed with a folded sugar packet three months ago and that Lupe, who'd worked the counter since the Clinton administration, had never fixed because she'd told me "if you fixed it, it's fixed" — after pupusas and before horchata, because timing matters and because the middle of a meal is the most honest part — you've relaxed into the food, you've stopped performing, you're just two people at a table being who they are.</p>
 <p>Sofia was telling me about a surgery. A cat with an intestinal obstruction — a hairball the size of a golf ball that she'd removed in a procedure she described with the clinical enthusiasm of a woman who loves the puzzle of a body. Her hands were moving as she talked, illustrating the incision, the extraction, the suture technique. Her hands always moved when she talked about work. Surgeon's hands that couldn't be still when they were remembering what they'd done.</p>
 <p>I waited for her to finish. I waited because you don't interrupt a woman describing the thing she's best at, and because I wanted the proposal to live in its own moment, not grafted onto someone else's story.</p>
 <p>She finished. Took a sip of horchata. Looked at me.</p>
@@ -3476,15 +3428,10 @@
         </div>
         <div class="back-to-top"><a href="#top">↑ Back to Contents</a></div>
     </article>
-
-    <div class="word-count">
-        <p><strong>THE BRAINCANDY STORY</strong> — A Novel by Roger Grubb</p>
-        <p>Approximately 83,000 words • 34 Chapters</p>
-        <p style="margin-top: 20px; font-size: 0.8em;">
-            This is a work of fiction. Names, characters, businesses, places, events, and incidents 
-            are either products of the author's imagination or used in a fictitious manner.
-        </p>
-    </div>
-
+    </main>
+    <footer>
+        <p>The Braincandy Story © 2025 Roger Grubb</p>
+    </footer>
+</div>
 </body>
 </html>
